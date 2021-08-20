@@ -26,7 +26,7 @@ class MyObj { //スーパークラス
 class MyData extends MyObj {  // サブクラス
   String mail;
    
-  MyData() : this.make('noname', 'no@mail', 0);
+  MyData() : this.make('初期name', 'firstname@mail', 0);
    
   MyData.make(String name, String mail, num age){
     this.name = name;
@@ -40,7 +40,7 @@ class MyData extends MyObj {  // サブクラス
   // @overrideは、そのメソッドがオーバーライドされたものであることを示します。
 
   void printData(){
-    String re = '< MyObj "' + this.name + '" [' + this.mail + '] (' + 
+    String re = '< MyData "' + this.name + '" [' + this.mail + '] (' + 
           this.age.toString() + ') >';
     // String re = '私の名前は ' + this.name + ' です。' + '年齢は '+ this.age.toString() + ' 歳です';
 

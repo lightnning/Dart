@@ -4,8 +4,8 @@ void main() {
   MyObj taro = new MyObj.make('Taro', 35);
   taro.printData();
   MyObj hanako = new MyObj();
-  hanako.name = 'Hanako';
-  hanako.age = 24;
+  // hanako.name = 'Hanako';
+  // hanako.age = 24;
   hanako.printData();
 }
  
@@ -13,7 +13,7 @@ class MyObj {
   String name;
   num age;
    
-  MyObj() : this.make('noname', 0); // 引数なしのコンストラクタを定義 :リダイレクト
+  MyObj() : this.make('リダイレクト', 100); // 引数なしのコンストラクタを定義 :リダイレクト
    
   MyObj.make(String name, num age){  // 名前付きコンストラクタ
     this.name = name;

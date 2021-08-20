@@ -5,6 +5,7 @@ void main() {
   hanako.printData();
   MyObj tomoya = new MyObj('Tomoya', 54);
   tomoya.printData();
+  tomoya.printAge();
   
 }
 
@@ -20,6 +21,11 @@ class MyObj {
   void printData(){
     // String re = '<MyObj "' + this.name + '"(' + this.age.toString() + ')>';
     String re = '私の名前は ' + this.name + ' です。' + '年齢は '+ this.age.toString() + ' 歳です';
+    print(re);
+  }
+
+  void printAge(){
+    String re = this.name + 'の年齢は '+ this.age.toString() + ' 歳です';
     print(re);
   }
 }
