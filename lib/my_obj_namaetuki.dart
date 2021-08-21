@@ -1,29 +1,5 @@
 // クラス、コンストラクタ
 
-// void main() {
-//   MyObjNamaetuki taro = new MyObjNamaetuki.make('Taro', 35);
-//   taro.printData();
-//   MyObjNamaetuki hanako = new MyObjNamaetuki();
-//   // hanako.name = 'Hanako';
-//   // hanako.age = 24;
-//   hanako.printData();
-//   MyData test  = new MyData('teatData');
-//   test.printData();
-// }
-
-class MyData {
-  String name;
-  // MyData(String name){ this.name = name;}と等価
-  MyData(this.name);
-
-
-
-  void printData(){
-    String re = '私の名前は' + this.name + 'です';
-    print(re);
-  }
-}
-
 class MyObjNamaetuki {
   String name;
   num age;
@@ -37,7 +13,8 @@ class MyObjNamaetuki {
    
   void printData(){
     // String re = '<MyObj "' + this.name + '"(' + this.age.toString() + ')>';
-    String re = '私の名前は ' + this.name + ' です。' + '年齢は '+ this.age.toString() + ' 歳です';
+    String re = ' 私の名前は ' + this.name + ' です。' + '年齢は '+ this.age.toString() + ' 歳です';
+    print('my_obj_namaetuki');
     print(re);
   }
    

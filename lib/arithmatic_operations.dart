@@ -1,5 +1,5 @@
 
-class Cal{
+class ArithmeticOperations{
   num x,y;
 
   // Point(num x, num y){
@@ -7,7 +7,7 @@ class Cal{
   //   this.y = y;
   // }
 
-  Cal(this.x, this.y); // 一般的な書き方。前のコードと同じ意味
+  ArithmeticOperations(this.x, this.y); // 一般的な書き方。前のコードと同じ意味
 
   void cal(){
     int add = this.x + this.y;
@@ -23,10 +23,10 @@ class Cal{
   }
 }
 
-void main() {
-  Point test = new Point(1,2);
-  test.cal();
+// void main() {
+//   Point test = new Point(1,2);
+//   test.cal();
 
   
   
-}
+// }

@@ -1,34 +1,20 @@
-void main() {
-  MyObj taro = new MyObj.make('Taro', 35);
-  taro.printData();
-  MyData hanako = new MyData.make('Hanako', 'hanako@flower', 28);
-  hanako.printData();
-}
+import 'my_obj.dart';
+
+// void main() {
+//   MyObj taro = new MyObj.make('Taro', 35);
+//   taro.printData();
+//   MyData hanako = new MyData.make('Hanako', 'hanako@flower', 28);
+//   hanako.printData();
+// }
  
-class MyObj { //スーパークラス
-  String name;
-  num age;
-   
-  MyObj() : this.make('noname', 0);
-   
-  MyObj.make(String name, num age){
-    this.name = name;
-    this.age = age;
-  }
-   
-  void printData(){
-    String re = '< MyObj "' + this.name + '" (' + this.age.toString() + ') >';
-    print(re);
-  }
-   
-}
+
  
-class MyData extends MyObj {  // サブクラス
+class MyObjExtend extends MyObj {  // サブクラス
   String mail;
    
-  MyData() : this.make('初期name', 'firstname@mail', 0);
+  MyObjExtend() : this.make('初期name', 'firstname@mail', 0);
    
-  MyData.make(String name, String mail, num age){
+  MyObjExtend.make(String name, String mail, num age){
     this.name = name;
     this.mail = mail;
     this.age = age;
@@ -40,9 +26,9 @@ class MyData extends MyObj {  // サブクラス
   // @overrideは、そのメソッドがオーバーライドされたものであることを示します。
 
   void printData(){
-    String re = '< MyData "' + this.name + '" [' + this.mail + '] (' + 
-          this.age.toString() + ') >';
-    // String re = '私の名前は ' + this.name + ' です。' + '年齢は '+ this.age.toString() + ' 歳です';
+    // String re = '< MyData "' + this.name + '" [' + this.mail + '] (' + 
+    //       this.age.toString() + ') >';
+    String re = 'my_obj_extends 私の名前は ' + this.name + ' です。' + '年齢は '+ this.age.toString() + ' 歳です';
 
     print(re);
   }

@@ -1,9 +1,9 @@
-void main() {
-  Calc.tax = 8;
-  print(Calc.calc(10000));
-  Calc.tax = 10;
-  print(Calc.calc(10000));
-}
+// void main() {
+//   Calc.tax = 8;
+//   print(Calc.calc(10000));
+//   Calc.tax = 10;
+//   print(Calc.calc(10000));
+// }
  
 class Calc {
   static num tax;

@@ -1,19 +1,20 @@
-void main() {
-  MyObj taro = new MyObj('Taro', 35);  // newによるインスタンス生成
-  taro.printData();
-  MyObj hanako = new MyObj('Hanako', 28);
-  hanako.printData();
-  MyObj tomoya = new MyObj('Tomoya', 54);
-  tomoya.printData();
-  tomoya.printAge();
-  
-}
+// void main() {
+//   MyObj taro = new MyObj('Taro', 35);  // newによるインスタンス生成
+//   taro.printData();
+//   MyObj hanako = new MyObj('Hanako', 28);
+//   hanako.printData();
+//   MyObj tomoya = new MyObj('Tomoya', 54);
+//   tomoya.printData();
+//   tomoya.printAge();
+// }
 
 class MyObj {
   String name;  // インスタンス変数
   num age;
 
-  MyObj(String name, num age){  // コンストラクタ
+  MyObj() : this.make('noname', 0);
+
+  MyObj.make(String name, num age){  // コンストラクタ
     this.name = name;
     this.age = age;
   }
