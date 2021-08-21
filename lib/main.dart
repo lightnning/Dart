@@ -29,8 +29,9 @@ void main() {
   kana.printData();
 
   print('Calc');
+  print(Calc.calc(10000));
   Calc.tax = 8;
-  print(Calc.calc(12300));
+  print(Calc.calc(10000));
   Calc.tax = 10;
-  print(Calc.calc(12300));
+  print(Calc.calc(10000));
 }

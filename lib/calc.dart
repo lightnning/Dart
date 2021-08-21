@@ -6,7 +6,7 @@
 // }
  
 class Calc {
-  static num tax;
+  static num tax = 5;
    
   static num calc(num price){
     return price * (100 + tax) / 100;
