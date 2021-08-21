@@ -4,6 +4,9 @@ import 'my_data.dart';
 import 'my_obj_basic.dart';
 import 'my_obj_extends.dart';
 import 'calc.dart';
+import 'car.dart';
+
+
 
 
 void main() {
@@ -34,4 +37,15 @@ void main() {
   print(Calc.calc(10000));
   Calc.tax = 10;
   print(Calc.calc(10000));
+
+  Car car = Car(doors: 4, members: 6);
+  print(car.doors);
+  print(car.members);
+  car.drive();
+
+  Car tomoya = Car(doors: 3);
+  print(tomoya.doors);
+  print(tomoya.members);
+
+  
 }
