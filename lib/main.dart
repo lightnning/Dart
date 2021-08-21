@@ -1,5 +1,4 @@
-// import 'package:test_dart/my_obj_namaetuki.dart';
-// import 'package:test_dart/my_obj.dart';
+
 import 'my_obj_namaetuki.dart';
 
 void main() {

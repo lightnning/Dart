@@ -1,5 +1,5 @@
 
-class Point{
+class Cal{
   num x,y;
 
   // Point(num x, num y){
@@ -7,7 +7,7 @@ class Point{
   //   this.y = y;
   // }
 
-  Point(this.x, this.y); // 一般的な書き方。前のコードと同じ意味
+  Cal(this.x, this.y); // 一般的な書き方。前のコードと同じ意味
 
   void cal(){
     int add = this.x + this.y;
