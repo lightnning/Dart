@@ -7,8 +7,23 @@ void main() {
   // hanako.name = 'Hanako';
   // hanako.age = 24;
   hanako.printData();
+  MyData test  = new MyData('teatData');
+  test.printData();
 }
- 
+
+class MyData {
+  String name;
+  // MyData(String name){ this.name = name;}と等価
+  MyData(this.name);
+
+
+
+  void printData(){
+    String re = '私の名前は' + this.name + 'です';
+    print(re);
+  }
+}
+
 class MyObj {
   String name;
   num age;
