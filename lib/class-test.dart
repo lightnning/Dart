@@ -140,21 +140,21 @@ superコンストラクタを利用することで、スーパークラスのコ
       Abstract classes can't be instantiated
 */
 
-abstract class AbstractSuperClass {
-  void test();
-}
+// abstract class AbstractSuperClass {
+//   void test();
+// }
 
-class SubClass extends AbstractSuperClass {
-  @override 
-  void test(){
-    print('SubClass');
-  }
-}
+// class SubClass extends AbstractSuperClass {
+//   @override 
+//   void test(){
+//     print('SubClass');
+//   }
+// }
 
-void main() {
-  SubClass obj = SubClass();
-  obj.test();
-}
+// void main() {
+//   SubClass obj = SubClass();
+//   obj.test();
+// }
 
 /*
   abstractを付けない以下の場合も同様なことが可能だが、
@@ -164,3 +164,24 @@ void main() {
     未実装の場合にエラーで教えてくれることが無い
 */
 
+// 変数やコンストラクタを持つ場合
+
+abstract class AbstractSuperClass {
+  String a;
+  AbstractSuperClass(this.a);
+  void test();
+}
+
+class SubClass extends AbstractSuperClass {
+  String b;
+  SubClass(this.b) : super(b*2);
+  @override
+  void test() => print('SubClass: $b');
+}
+
+void main() {
+  SubClass obj = SubClass('Hello');
+  obj.test();
+  print(obj.a);
+  print(obj.b);
+}
