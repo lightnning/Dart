@@ -4,7 +4,7 @@
 
 // オーバーライドする関数の引数の型を変更(covariant)
 
-class SuperClassForArgument{}
+class SuperClassForArgument {}
 
 class SubClassForArgument extends SuperClassForArgument {}
 
@@ -13,7 +13,7 @@ class SuperClass {
 }
 
 class SubClass extends SuperClass {
-  @override 
+  @override
   void test(SubClassForArgument obj) {
     print('SubClass:' + obj.toString());
   }
@@ -22,14 +22,10 @@ class SubClass extends SuperClass {
 void main() {
   SubClass obj = SubClass();
   obj.test(SubClassForArgument());
-
-
-
-
 }
 
-// エラー内容
 /*
+// エラー内容
 tomoya@kobayasoyanoAir lib % dart class-test.dart                         
 class-test.dart:17:33: Error: The parameter 'obj' of the method 'SubClass.test' has type 'SubClassForArgument', which does not match the corresponding type, 'SuperClassForArgument', in the overridden method, 'SuperClass.test'.
  - 'SubClassForArgument' is from 'class-test.dart'.
@@ -39,4 +35,16 @@ Change to a supertype of 'SuperClassForArgument', or, for a covariant parameter,
                                 ^
 class-test.dart:12:8: Context: This is the overridden method ('test').
   void test(SuperClassForArgument obj) => print('SuperClass:' + obj.toString());
+----------------
+SubClassのvoid test(SubClassForArgument obj)で以下エラー
+'SubClass.test' ('void Function(SubClassForArgument)') isn't a valid override of 'SuperClass.test' ('void Function(SuperClassForArgument)')
+SuperClassでvoid test(SuperClassForArgument obj)となっているため、SubClassForArgumentを引数としてしまうとDowncastを誘発してしまう可能性がある
+------------
+
+
+
+
+
 */
+
+
