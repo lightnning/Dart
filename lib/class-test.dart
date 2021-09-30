@@ -2,22 +2,28 @@
 // クラスを利用したクラス作成の基本
 
 
+// オーバーライドする関数の引数の型を変更(covariant)
+
+class SuperClassForArgument{}
+
+class SubClassForArgument extends SuperClassForArgument {}
+
 class SuperClass {
-  void test() => print('SuperClass');
+  void test(SuperClassForArgument obj) => print('SuperClass:' + obj.toString());
 }
 
 class SubClass extends SuperClass {
-  @override
-  // test() => print('SubClass');
-  void test() {
-    super.test();
-    print('SubClass');
+  @override 
+  void test(SubClassForArgument obj) {
+    print('SubClass:' + obj.toString());
   }
 }
 
 void main() {
   SubClass obj = SubClass();
-  obj.test();
+  obj.test(SubClassForArgument());
+
+
 
 
 }
