@@ -85,15 +85,40 @@ superコンストラクタを利用することで、スーパークラスのコ
     - The superclass 'SuperClass' doesn't have a zero argument constructor
 */
 
+// class SuperClass {
+//   String a ;
+//   SuperClass(this.a);
+//   void test() => print('SuoerClass: $a');
+// }
+
+// class SubClass extends SuperClass {
+//   String b;
+//   SubClass(this.b) : super(b);
+//   @override 
+//   void test() => print('SubClass: $b');
+// }
+
+// void main() {
+//   SubClass obj = SubClass('Hello');
+//   obj.test();
+//   print(obj.a);
+//   print(obj.b);
+// }
+
+
+/*
+実際にsuperコンストラクタ利用する際は、基本はsuperには何か値を渡す時にのみ呼ぶべき
+*/
+
 class SuperClass {
-  String a ;
+  String a;
   SuperClass(this.a);
-  void test() => print('SuoerClass: $a');
+  void test() => print('SuperClass: $a');
 }
 
 class SubClass extends SuperClass {
   String b;
-  SubClass(this.b) : super(b);
+  SubClass(this.b) : super(b*2);
   @override 
   void test() => print('SubClass: $b');
 }
