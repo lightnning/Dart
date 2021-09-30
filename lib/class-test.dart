@@ -110,22 +110,57 @@ superコンストラクタを利用することで、スーパークラスのコ
 実際にsuperコンストラクタ利用する際は、基本はsuperには何か値を渡す時にのみ呼ぶべき
 */
 
-class SuperClass {
-  String a;
-  SuperClass(this.a);
-  void test() => print('SuperClass: $a');
+// class SuperClass {
+//   String a;
+//   SuperClass(this.a);
+//   void test() => print('SuperClass: $a');
+// }
+
+// class SubClass extends SuperClass {
+//   String b;
+//   SubClass(this.b) : super(b*2);
+//   @override 
+//   void test() => print('SubClass: $b');
+// }
+
+// void main() {
+//   SubClass obj = SubClass('Hello');
+//   obj.test();
+//   print(obj.a);
+//   print(obj.b);
+// }
+
+// abstractクラス（extends）
+/*
+他のクラスでクラスそのものを利用するためのabstractクラス
+  - abstractクラスでは、void test();のように空の関数を置いておける
+    - @overrideは省略可能だが、非推奨
+  - abstractが付くクラスは、それ自体をオブジェクト化しようとするとエラーとなる
+    - AbstractSuperClass obj = AbstractSuperClass();とすると以下エラー
+      Abstract classes can't be instantiated
+*/
+
+abstract class AbstractSuperClass {
+  void test();
 }
 
-class SubClass extends SuperClass {
-  String b;
-  SubClass(this.b) : super(b*2);
+class SubClass extends AbstractSuperClass {
   @override 
-  void test() => print('SubClass: $b');
+  void test(){
+    print('SubClass');
+  }
 }
 
 void main() {
-  SubClass obj = SubClass('Hello');
+  SubClass obj = SubClass();
   obj.test();
-  print(obj.a);
-  print(obj.b);
 }
+
+/*
+  abstractを付けない以下の場合も同様なことが可能だが、
+  空関数についてoverride必須ではないので、あまり意味がない
+
+    特定の関数を必ず持っているというルールを作れない
+    未実装の場合にエラーで教えてくれることが無い
+*/
+
