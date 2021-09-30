@@ -40,22 +40,22 @@ The argument type 'int' can't be assigned to the parameter type 'String'
 */
 
 
-class SuperClass {
-  void test(covariant String s) => print('SuperClass' + s);
-}
+// class SuperClass {
+//   void test(covariant String s) => print('SuperClass' + s);
+// }
 
-class SubClass extends SuperClass {
-  @override 
-  void test(int i) {
-    print('SubClass:'+i);
+// class SubClass extends SuperClass {
+//   @override 
+//   void test(int i) {
+//     print('SubClass:'+i);
 
-  }
-}
+//   }
+// }
 
-void main() {
-  SubClass obj = SubClass();
-  obj.test(1);
-}
+// void main() {
+//   SubClass obj = SubClass();
+//   obj.test(1);
+// }
 
 // エラー内容
 /*
@@ -75,3 +75,32 @@ class-test.dart:50:23: Error: A value of type 'int' can't be assigned to
     print('SubClass:'+i);
 */
 
+
+// super コンストラクタ
+/*
+superコンストラクタを利用することで、スーパークラスのコンストラクタを呼ぶ
+  - SubClass(this.b) : super(b);とすることで、SuperClass(this.a);も呼ばれる
+    - ＝SubClassのオブジェクトは、変数aもbも持つ
+  - SubClass(this.b);のみだと以下エラー
+    - The superclass 'SuperClass' doesn't have a zero argument constructor
+*/
+
+class SuperClass {
+  String a ;
+  SuperClass(this.a);
+  void test() => print('SuoerClass: $a');
+}
+
+class SubClass extends SuperClass {
+  String b;
+  SubClass(this.b) : super(b);
+  @override 
+  void test() => print('SubClass: $b');
+}
+
+void main() {
+  SubClass obj = SubClass('Hello');
+  obj.test();
+  print(obj.a);
+  print(obj.b);
+}
