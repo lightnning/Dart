@@ -39,13 +39,12 @@ SubClassのprint('SubClass:'+i);で以下エラー
 The argument type 'int' can't be assigned to the parameter type 'String'
 */
 
-
 // class SuperClass {
 //   void test(covariant String s) => print('SuperClass' + s);
 // }
 
 // class SubClass extends SuperClass {
-//   @override 
+//   @override
 //   void test(int i) {
 //     print('SubClass:'+i);
 
@@ -75,7 +74,6 @@ class-test.dart:50:23: Error: A value of type 'int' can't be assigned to
     print('SubClass:'+i);
 */
 
-
 // super コンストラクタ
 /*
 superコンストラクタを利用することで、スーパークラスのコンストラクタを呼ぶ
@@ -94,7 +92,7 @@ superコンストラクタを利用することで、スーパークラスのコ
 // class SubClass extends SuperClass {
 //   String b;
 //   SubClass(this.b) : super(b);
-//   @override 
+//   @override
 //   void test() => print('SubClass: $b');
 // }
 
@@ -104,7 +102,6 @@ superコンストラクタを利用することで、スーパークラスのコ
 //   print(obj.a);
 //   print(obj.b);
 // }
-
 
 /*
 実際にsuperコンストラクタ利用する際は、基本はsuperには何か値を渡す時にのみ呼ぶべき
@@ -119,7 +116,7 @@ superコンストラクタを利用することで、スーパークラスのコ
 // class SubClass extends SuperClass {
 //   String b;
 //   SubClass(this.b) : super(b*2);
-//   @override 
+//   @override
 //   void test() => print('SubClass: $b');
 // }
 
@@ -145,7 +142,7 @@ superコンストラクタを利用することで、スーパークラスのコ
 // }
 
 // class SubClass extends AbstractSuperClass {
-//   @override 
+//   @override
 //   void test(){
 //     print('SubClass');
 //   }
@@ -166,22 +163,66 @@ superコンストラクタを利用することで、スーパークラスのコ
 
 // 変数やコンストラクタを持つ場合
 
-abstract class AbstractSuperClass {
-  String a;
-  AbstractSuperClass(this.a);
-  void test();
+// abstract class AbstractSuperClass {
+//   String a;
+//   AbstractSuperClass(this.a);
+//   void test();
+// }
+
+// class SubClass extends AbstractSuperClass {
+//   String b;
+//   SubClass(this.b) : super(b*2);
+//   @override
+//   void test() => print('SubClass: $b');
+// }
+
+// void main() {
+//   SubClass obj = SubClass('Hello');
+//   obj.test();
+//   print(obj.a);
+//   print(obj.b);
+// }
+
+// GetterとSetterの空の関数をabstractクラスで定義する例
+
+abstract class Creature {
+  int _number;
+  String _name;
+  Creature(this._number, this._name);
+
+  // Abstract Getter
+  int get number;
+  String get name;
+
+  // Abstract Setter
+  set name(String s);
+  
 }
 
-class SubClass extends AbstractSuperClass {
-  String b;
-  SubClass(this.b) : super(b*2);
-  @override
-  void test() => print('SubClass: $b');
+class Monster extends Creature {
+  Monster(number, name) : super(number, name);
+
+  // Getter
+  @override 
+  int get number => _number;
+  @override 
+  String get name => _name;
+
+  // Setter
+  @override 
+  set name(String s) {
+    if (s.length > 0 && s.length < 11) {
+      _name = s;
+    } else {
+      print('$s:文字数を1文字以上10文字以下にしてください。');
+
+    }
+  }
 }
 
-void main() {
-  SubClass obj = SubClass('Hello');
-  obj.test();
-  print(obj.a);
-  print(obj.b);
-}
+  void main() {
+    final monster = Monster(1, 'Slime');
+    print(monster.number.toString() + ':' + monster.name);
+    monster.name = 'Slaline';
+    print(monster.number.toString() + ':' + monster.name); 
+  }
