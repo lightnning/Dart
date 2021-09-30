@@ -27,3 +27,16 @@ void main() {
 
 
 }
+
+// エラー内容
+/*
+tomoya@kobayasoyanoAir lib % dart class-test.dart                         
+class-test.dart:17:33: Error: The parameter 'obj' of the method 'SubClass.test' has type 'SubClassForArgument', which does not match the corresponding type, 'SuperClassForArgument', in the overridden method, 'SuperClass.test'.
+ - 'SubClassForArgument' is from 'class-test.dart'.
+ - 'SuperClassForArgument' is from 'class-test.dart'.
+Change to a supertype of 'SuperClassForArgument', or, for a covariant parameter, a subtype.
+  void test(SubClassForArgument obj) {
+                                ^
+class-test.dart:12:8: Context: This is the overridden method ('test').
+  void test(SuperClassForArgument obj) => print('SuperClass:' + obj.toString());
+*/
