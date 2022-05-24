@@ -14,7 +14,7 @@ main() {
   int v;
   print(v == null);  // true
 
-  int? value = null;
+  int value = null;
   print('int? value = null ${value}');
 
 
