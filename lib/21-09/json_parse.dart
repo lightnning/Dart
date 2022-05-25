@@ -8,5 +8,11 @@ var jsonString = '''
 
 Map<String, dynamic> user = jsonDecode(jsonString);
 
-print('Howdy, ${user['name']}!');
-print('We sent the verification link to ${user['email']}.');
+void main(){
+ 
+  print('${user.toString}');
+  print('Howdy, ${user['name']}!');
+  print('We sent the verification link to ${user['email']}.');
+
+}
+
