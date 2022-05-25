@@ -20,29 +20,29 @@ class Circle extends Shape {
   double radius = 0;
   Circle(this.radius);
   void getArea() {
-    print('半径${this.radius}の円の面積は${this.radius*this.radius}');
+    print('半径${this.radius}の円の面積は${this.radius * this.radius * 3.14}');
    
   }
   
 }
 
-class CircleLength extends Shape {
-  double radius = 0;
-  CircleLength(this.radius);
-  
-  void getArea(){
+class CircleLength extends Circle{
+  CircleLength(double radius) : super(radius); //親クラスのコンストラクタを呼び出す
+
+  void getCircleLength(){
     print('半径${this.radius}の円周は、${this.radius * 2 * 3.14}');
   }
-
 }
+
+
 
 void main(){
   var rect = Rectangle(3, 4);
-  var cir = Circle(1);
-  var cir_le = CircleLength(1);
+  var cir = Circle(2);
+  var cir_le = CircleLength(2);
   rect.getArea();
   cir.getArea();
-  cir_le.getArea();
+  cir_le.getCircleLength();
 
 
 }
