@@ -10,7 +10,7 @@ main() {
   print(mario is Luigi); // false
 
   // Null 型
-  print(null is Null);  // true
+  // print(null is Null);  // true
   int v;
   print(v == null);  // true
 
