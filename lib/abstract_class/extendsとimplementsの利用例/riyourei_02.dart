@@ -4,22 +4,25 @@ abstract class Creature {
   int hp;
   Creature(this.name, this.hp);
 
-  bool isDead() => hp <= 0;
+  bool isDead() => hp <= 10;
   void attack();
 }
 
 class Human extends Creature {
-  Human(name, hp) : super(name, hp);
+  String nickName;
+  Human(name, this.nickName,hp) : super(name, hp);
+  
+  
 
   @override
   void attack() {
-    print('human name:${this.name} hp:${this.hp}');
+    print('${this.name}のhpは、${this.hp}');
     if (isDead()) {
-      print('瀕死');
+      print('${this.name}(${this.nickName})は、瀕死状態だった');
       return;
     }
     
-    print('human パンチ');
+    print('humanは、パンチをした');
   }
 }
 
@@ -28,19 +31,19 @@ class Monster extends Creature {
   
   @override
   void attack() {
-    print('monster name:${this.name} hp:${this.hp}');
+    print('${this.name}のhpは、${this.hp}だった');
     if (isDead()) {
-      print('monster 瀕死');
+      print('${this.name}は、瀕死状態だった');
       return;
     }
     
-    print('魔法');
+    print('${this.name}は、魔法をかけた');
   }
   
 }
 
 void main() {
-  final human = Human('Warrior', 10);
+  final human = Human('Warrior','Wa-' ,10);
   final monster1 = Monster('Slime', 0);
   final monster2 = Monster('Dragon', 100);
   human.attack();
