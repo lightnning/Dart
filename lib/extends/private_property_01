@@ -1,0 +1,27 @@
+class Parent {
+  String _name = 'parent';
+  String getName() {
+    return this._name;
+  }
+}
+
+class Child extends Parent {
+  String getName1() {
+    return "child [Not ${super.getName()}]";
+  }
+  String getName2() {
+    return "child [Not ${super._name}}";
+  }
+}
+
+
+// libraryが一緒だと private propertyにアクセスできてしまう
+main(){
+  Child child = new Child();
+  print(child.getName1());
+  print(child.getName2());
+  print(child._name);
+  //> child [Not parent]
+  //> child [Not parent}
+  //> parent
+}
