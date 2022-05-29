@@ -12,6 +12,7 @@ class Profession {
   List skill(e) {
     return e;
   }
+
   // 経験のある職業を表示するエクスペリアンスメソッド
   List experience(e) {
     return e;
