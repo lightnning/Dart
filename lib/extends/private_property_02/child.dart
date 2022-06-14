@@ -5,6 +5,6 @@ class Child extends Parent {
     return "child [Not ${super.getName()}]";
   }
   String getName2() {
-    return "child [Not ${super._name}}"; // エラーになる
+    return "child [Not ${super.name}}"; 
   }
 }

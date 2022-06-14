@@ -5,5 +5,6 @@ class Parent {
   }
 
   // Getter
-  // String get name => _name;
+  String get name => _name;
+  
 }
