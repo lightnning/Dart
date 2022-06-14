@@ -12,4 +12,6 @@ class Car extends Vehicle{
 void main(){
   var a = Car();
   a.showStatus();
+  print(Car());
+  Car().showStatus();
 }
